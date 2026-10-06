@@ -1,6 +1,6 @@
 #!/usr/bin/env bash
 # ==============================================================================
-# Unhackable Computing Stack (UCS) Self-Audit & Verification Script
+# Araboth: Unhackable Computing Stack Self-Audit & Verification Script
 # ==============================================================================
 set -euo pipefail
 
@@ -8,7 +8,7 @@ REPO_DIR="$(cd "$(dirname "${BASH_SOURCE[0]}")/.." && pwd)"
 cd "$REPO_DIR"
 
 echo "========================================================================"
-echo "  Unhackable Computing Stack (UCS): Verification Suite"
+echo "  Araboth: Unhackable Computing Stack Verification Suite"
 echo "========================================================================"
 
 # 1. Verify Lean 4 Capability Proof
