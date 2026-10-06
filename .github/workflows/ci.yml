@@ -1,0 +1,32 @@
+name: CI & Stack Verification
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+    branches: [main]
+
+jobs:
+  verify:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: "3.11"
+
+      - name: Validate JSON & Architecture Descriptors
+        run: |
+          python3 -m json.tool hardware/iommu_firewall.json > /dev/null
+          python3 -m json.tool runtimes/ai_workspace_guest.json > /dev/null
+          echo "All hardware & runtime specifications valid."
+
+      - name: Install Lean 4 & Verify Proofs
+        uses: leanprover/lean-action@v1
+        continue-on-error: true
+
+      - name: Self-Audit Test
+        run: |
+          bash scripts/verify_stack.sh

@@ -1,0 +1,28 @@
+# Build artifacts
+build/
+bin/
+*.o
+*.a
+*.so
+*.olean
+*.ilean
+*.c
+
+# Python
+__pycache__/
+*.py[cod]
+.pytest_cache/
+venv/
+.venv/
+
+# Hardware & Bitstreams
+*.bit
+*.bin
+*.jou
+*.log
+
+# Editor & OS
+.DS_Store
+.vscode/
+.idea/
+*.swp

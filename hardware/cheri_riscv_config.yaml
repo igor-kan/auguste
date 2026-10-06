@@ -1,0 +1,20 @@
+# CHERI-RISC-V Microarchitecture Configuration
+# Unhackable Computing Stack (UCS)
+
+core:
+  architecture: "rv64gc_cheri"
+  extension: "cheri_purecap"
+  capability_format: "128-bit tagged fat pointer"
+  pointer_fields:
+    tag: 1        # Hardware 1-bit memory tag representing unforgeable validity
+    otype: 18     # Object type / hardware sealing domain
+    perms: 12     # Execute, Read, Write, Grant, Seal
+    bounds:
+      base: 64    # Linear base address
+      length: 64  # Precise compressed bounds length
+
+pipeline:
+  constant_time_alu: true
+  speculative_barrier: true
+  cache_partitioning: "spatial_way_partitioning"
+  puf_derivation: "sram_startup_entropy"

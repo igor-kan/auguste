@@ -1,0 +1,28 @@
+{
+  "iommu_version": "RISC-V IOMMU v1.0 + CHERI Capabilities",
+  "dma_protection": "capability_gated",
+  "devices": [
+    {
+      "device_id": "0000:01:00.0",
+      "name": "Discrete GPU / AI Tensor Accelerator",
+      "domain_id": "ai_research_enclave",
+      "allowed_memory_range": {
+        "base_address": "0x90000000",
+        "size_bytes": "0x100000000"
+      },
+      "allow_host_dma": false,
+      "allow_kernel_dma": false
+    },
+    {
+      "device_id": "0000:02:00.0",
+      "name": "10GbE Network Controller",
+      "domain_id": "net_driver_partition",
+      "allowed_memory_range": {
+        "base_address": "0x80000000",
+        "size_bytes": "0x10000000"
+      },
+      "allow_host_dma": false,
+      "allow_kernel_dma": false
+    }
+  ]
+}

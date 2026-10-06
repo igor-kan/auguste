@@ -1,0 +1,20 @@
+{
+  "partition_type": "seL4_VMM_Guest",
+  "guest_os": "Linux 6.x (Isolated POSIX Environment)",
+  "workload": "STEM and AI Research Computing",
+  "installed_frameworks": [
+    "PyTorch 2.x",
+    "OpenAI Triton",
+    "JupyterLab",
+    "CUDA / ROCm Runtimes",
+    "Rust toolchain",
+    "Clang / LLVM",
+    "Lean 4"
+  ],
+  "containment": {
+    "root_filesystem": "read_only_squashfs",
+    "workspace_overlay": "ephemeral_tmpfs",
+    "host_filesystem_access": false,
+    "gpu_passthrough_mode": "capability_iommu_isolated"
+  }
+}

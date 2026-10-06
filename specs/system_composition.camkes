@@ -1,0 +1,45 @@
+/*
+ * seL4 System Composition Architecture (CAmkES)
+ * Unhackable Computing Stack (UCS)
+ *
+ * Partitions device drivers into untrusted user-space domains and mediates
+ * AI research enclaves with capability-gated IPC endpoints.
+ */
+
+import <std_connector.camkes>;
+
+component NetworkDriver {
+    provides NetworkInterface net;
+    consumes HardwareInterrupt irq;
+    dataport Buf(4096) dma_pool;
+}
+
+component StorageDriver {
+    provides BlockInterface block;
+    consumes HardwareInterrupt irq;
+}
+
+component VMM_AI_Enclave {
+    control;
+    uses NetworkInterface net;
+    uses BlockInterface block;
+    dataport Buf(65536) gpu_mapped_region;
+}
+
+assembly {
+    composition {
+        component NetworkDriver net_driver;
+        component StorageDriver storage_driver;
+        component VMM_AI_Enclave ai_enclave;
+
+        /* Capability-isolated IPC channels */
+        connection seL4RPCCall net_conn(from ai_enclave.net, to net_driver.net);
+        connection seL4RPCCall block_conn(from ai_enclave.block, to storage_driver.block);
+    }
+
+    configuration {
+        /* Zero ambient authority: no device has kernel access */
+        net_driver.dma_pool_attributes = "0x80000000:0x1000";
+        ai_enclave.gpu_mapped_region_attributes = "0x90000000:0x10000";
+    }
+}
