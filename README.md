@@ -1,11 +1,11 @@
-# Araboth (ערבות) — The Unhackable Computing Stack
+# Auguste — The Unhackable Computing Stack
 
 [![License](https://img.shields.io/badge/License-Apache_2.0-blue.svg)](LICENSE)
 [![Verification](https://img.shields.io/badge/Verification-seL4_%7C_Isabelle_%7C_Lean_4-success.svg)](specs/)
 [![Hardware Security](https://img.shields.io/badge/Hardware-CHERI--RISC--V-orange.svg)](hardware/)
 [![Usability](https://img.shields.io/badge/Workloads-PyTorch_%7C_STEM_%7C_POSIX-purple.svg)](runtimes/)
 
-> **Araboth (ערבות)**: *A vertically verified, provably secure computing stack designed to remain mathematically and physically unhackable—even when an adversary possesses complete white-box knowledge of every line of source code, binary bit, and silicon microarchitecture schematic.*
+> **Auguste**: *A vertically verified, provably secure computing stack designed to remain mathematically and physically unhackable—even when an adversary possesses complete white-box knowledge of every line of source code, binary bit, and silicon microarchitecture schematic.* Named in honor of **Auguste Kerckhoffs** and Shannon's maxim (*"the enemy knows the system"*).
 
 Built for professional software engineers, STEM scientists, and AI researchers who demand modern productivity (Python, PyTorch, C/C++, Rust, shells, GPU acceleration) without compromising mathematical security.
 
@@ -13,7 +13,7 @@ Built for professional software engineers, STEM scientists, and AI researchers w
 
 ## 1. Core Philosophy: The Kerckhoffs Standard
 
-Traditional systems rely on obscurity, patch cycles, and probabilistic defenses. **Araboth** strictly implements **Kerckhoffs’s Principle**:
+Traditional systems rely on obscurity, patch cycles, and probabilistic defenses. **Auguste** strictly implements **Kerckhoffs’s Principle** and **Shannon's Maxim**:
 
 > *The security of the system must reside entirely in unforgeable mathematical capability tokens and cryptographic keys—not in the secrecy of the implementation.*
 
@@ -88,7 +88,7 @@ Even if an attacker audits every gate in the processor, decompiles every kernel 
 ## 4. Repository Structure
 
 ```text
-araboth/
+auguste/
 ├── docs/
 │   ├── Building-an-Unhackable-Computing-Stack.md  # Original comprehensive foundation specification
 │   ├── THREAT_MODEL.md                           # Physical limits & side-channel countermeasures

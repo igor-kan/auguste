@@ -1,6 +1,6 @@
 #!/usr/bin/env bash
 # ==============================================================================
-# Araboth: Unhackable Computing Stack Self-Audit & Verification Script
+# Auguste: Unhackable Computing Stack Self-Audit & Verification Script
 # ==============================================================================
 set -euo pipefail
 
@@ -8,7 +8,7 @@ REPO_DIR="$(cd "$(dirname "${BASH_SOURCE[0]}")/.." && pwd)"
 cd "$REPO_DIR"
 
 echo "========================================================================"
-echo "  Araboth: Unhackable Computing Stack Verification Suite"
+echo "  Auguste: Unhackable Computing Stack Verification Suite"
 echo "========================================================================"
 
 # 1. Verify Lean 4 Capability Proof
